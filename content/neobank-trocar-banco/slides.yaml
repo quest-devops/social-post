@@ -1,0 +1,22 @@
+project: "neobank-trocar-banco"
+ratio: "3:4"            # 1080x1440 (GPT Image 2 não tem 4:5; 3:4 é o retrato mais próximo)
+n_slides: 3
+slides:
+  - i: 1
+    role: hook
+    headline: "Seu banco cobra pra usar o seu dinheiro?"
+    bold_word: "cobra"
+    body: ""
+    art_brief: "cartela verde-pinheiro escura; pessoa jovem real olhando o celular com cara de desânimo, segurando um extrato de tarifas; headline branca no terço superior"
+  - i: 2
+    role: value
+    headline: "Sem tarifas. Sem anuidade. Sem pegadinha."
+    bold_word: "Sem pegadinha"
+    body: "Conta, cartão e Pix na hora — de graça, num app só."
+    art_brief: "cartela creme; mockup de celular com a tela verde do app NeoBank; forma orgânica sálvia no canto"
+  - i: 3
+    role: cta
+    headline: "Abra sua conta hoje"
+    bold_word: "hoje"
+    body: "Baixe o app grátis e largue as tarifas pra trás."
+    art_brief: "cartela em verde vivo de acento; CTA grande centralizado; selos de app store; lockup do logo NeoBank (folha/N)"

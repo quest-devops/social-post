@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeoBank — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#21402F; --pine-deep:#0E1F16; --cream:#F2ECDD; --cream-light:#FAF7EF;
+    --sage:#9BBCA6; --green:#4F8A66; --white:#FFFFFF; --ink:#101410;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Inter',sans-serif; color:var(--ink); background:var(--cream-light); line-height:1.5;}
+  h1,h2,h3,.display{font-family:'Poppins',sans-serif; font-weight:400; letter-spacing:-0.01em;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  section{padding:56px 0; border-bottom:1px solid rgba(33,64,47,.12);}
+  .eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--green); font-weight:500; margin-bottom:14px;}
+  .sec-title{font-size:26px; margin-bottom:8px;}
+  .sec-sub{font-size:15px; color:#5a6158; max-width:60ch; margin-bottom:28px;}
+
+  /* HERO */
+  .hero{background:var(--pine); color:var(--white); position:relative; overflow:hidden; padding:72px 0 80px;}
+  .hero .blob{position:absolute; right:-80px; top:-60px; width:380px; height:380px; opacity:.22;}
+  .hero .blob2{position:absolute; left:-120px; bottom:-140px; width:340px; height:340px; opacity:.14;}
+  .logo{display:flex; align-items:center; gap:10px; margin-bottom:36px;}
+  .logo .mark{width:34px; height:34px; border-radius:9px; background:var(--green); display:flex; align-items:center; justify-content:center;}
+  .logo .name{font-family:'Poppins'; font-weight:600; letter-spacing:.04em; font-size:17px;}
+  .hero h1{font-size:46px; line-height:1.08; max-width:16ch;}
+  .hero h1 b{font-weight:600;}
+  .hero p{margin-top:18px; font-size:16px; color:var(--sage); max-width:52ch;}
+
+  /* SWATCHES */
+  .swatches{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px;}
+  .sw{border-radius:14px; overflow:hidden; border:1px solid rgba(33,64,47,.12); background:var(--white);}
+  .sw .chip{height:96px;}
+  .sw .meta{padding:12px 14px;}
+  .sw .nm{font-weight:500; font-size:14px;}
+  .sw .hex{font-family:'Inter'; font-size:12px; color:#6b7268; margin-top:2px;}
+  .sw .use{font-size:11px; color:#9aa097; margin-top:6px;}
+
+  /* TYPE */
+  .type-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
+  .specimen{background:var(--white); border:1px solid rgba(33,64,47,.12); border-radius:16px; padding:26px;}
+  .specimen .big{font-family:'Poppins'; font-size:40px; line-height:1; margin-bottom:6px;}
+  .ramp div{font-family:'Poppins'; line-height:1.2; margin:6px 0;}
+  .pattern{background:var(--cream); border-radius:16px; padding:26px; margin-top:24px;}
+  .pattern .ex{font-family:'Poppins'; font-size:24px; margin:8px 0; font-weight:400;}
+  .pattern .ex b{font-weight:600;}
+  .note{font-size:13px; color:#5a6158;}
+
+  /* CARDS */
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .card{border-radius:20px; padding:30px; min-height:230px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between;}
+  .card.dark{background:var(--pine); color:var(--white);}
+  .card.light{background:var(--cream); color:var(--ink);}
+  .card h3{font-size:28px; line-height:1.12;}
+  .card h3 b{font-weight:600;}
+  .card .blobc{position:absolute; width:240px; height:240px; right:-70px; bottom:-90px;}
+  .card.dark .blobc{opacity:.18;}
+  .card.light .blobc{opacity:.5;}
+  .pill{display:inline-flex; align-items:center; gap:6px; align-self:flex-start; background:var(--pine-deep); color:#fff; font-size:12px; font-weight:500; padding:9px 16px; border-radius:999px; position:relative; z-index:2;}
+  .card.light .pill{background:var(--pine);}
+
+  /* VOICE */
+  .voice{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;}
+  .v{background:var(--white); border:1px solid rgba(33,64,47,.12); border-left:4px solid var(--green); border-radius:0 12px 12px 0; padding:16px 18px; font-family:'Poppins'; font-size:17px;}
+  .traits{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px;}
+  .tag{background:rgba(79,138,102,.14); color:#2E5E45; font-size:13px; padding:6px 14px; border-radius:999px;}
+
+  /* SLIDES */
+  .feed{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+  .slide{aspect-ratio:4/5; border-radius:16px; padding:18px; position:relative; overflow:hidden; display:flex; flex-direction:column;}
+  .slide.dark{background:var(--pine); color:#fff;}
+  .slide.light{background:var(--cream); color:var(--ink);}
+  .slide.vivid{background:var(--green); color:#fff;}
+  .slide h4{font-family:'Poppins'; font-weight:400; font-size:20px; line-height:1.15;}
+  .slide h4 b{font-weight:600;}
+  .slide .bd{font-size:12px; margin-top:8px; opacity:.85; line-height:1.45;}
+  .slide .lg{margin-top:auto; font-family:'Poppins'; font-weight:600; font-size:12px; letter-spacing:.04em; opacity:.9; display:flex; align-items:center; gap:6px;}
+  .slide .dot{width:14px;height:14px;border-radius:4px;background:var(--green);display:inline-block;}
+  .slide.dark .dot,.slide.vivid .dot{background:var(--sage);}
+  .slide .role{font-size:10px; letter-spacing:.12em; text-transform:uppercase; opacity:.7; margin-bottom:8px;}
+  .blobsvg{display:block;}
+  footer{padding:34px 0 60px; color:#7a8077; font-size:13px;}
+  @media(max-width:720px){.type-grid,.cards{grid-template-columns:1fr;} .hero h1{font-size:34px;} .feed{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <svg class="blob" viewBox="0 0 200 200"><path fill="#9BBCA6" d="M44,-66C56,-58,64,-44,69,-29C74,-14,75,3,70,18C65,33,54,46,40,55C26,64,9,69,-8,72C-25,75,-43,76,-56,67C-69,58,-77,39,-79,20C-81,1,-77,-19,-67,-34C-57,-49,-41,-59,-25,-66C-9,-73,8,-77,24,-76C40,-75,55,-69,44,-66Z" transform="translate(100 100)"/></svg>
+  <svg class="blob2" viewBox="0 0 200 200"><path fill="#9BBCA6" d="M44,-66C56,-58,64,-44,69,-29C74,-14,75,3,70,18C65,33,54,46,40,55C26,64,9,69,-8,72C-25,75,-43,76,-56,67C-69,58,-77,39,-79,20C-81,1,-77,-19,-67,-34C-57,-49,-41,-59,-25,-66C-9,-73,8,-77,24,-76C40,-75,55,-69,44,-66Z" transform="translate(100 100)"/></svg>
+  <div class="wrap">
+    <div class="logo"><div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 18V6l12 12V6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="name">NEOBANK</span></div>
+    <h1>Design <b>System</b></h1>
+    <p>Banco digital que parece humano. Verde como confiança, creme como leveza, e uma palavra em negrito por título como assinatura. Benefício direto, zero tecnês.</p>
+  </div>
+</div>
+
+<section><div class="wrap">
+  <div class="eyebrow">01 — Cores</div>
+  <h2 class="sec-title">Paleta</h2>
+  <p class="sec-sub">Sistema duotone: cartelas alternam verde-pinheiro profundo e creme quente. Sálvia faz as formas orgânicas; o verde vivo é o acento de ação e dos gráficos do app.</p>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#21402F"></div><div class="meta"><div class="nm">Verde-pinheiro</div><div class="hex">#21402F</div><div class="use">Fundo escuro / base</div></div></div>
+    <div class="sw"><div class="chip" style="background:#0E1F16"></div><div class="meta"><div class="nm">Verde profundo</div><div class="hex">#0E1F16</div><div class="use">Botão / texto forte</div></div></div>
+    <div class="sw"><div class="chip" style="background:#F2ECDD"></div><div class="meta"><div class="nm">Creme</div><div class="hex">#F2ECDD</div><div class="use">Fundo claro</div></div></div>
+    <div class="sw"><div class="chip" style="background:#9BBCA6"></div><div class="meta"><div class="nm">Sálvia</div><div class="hex">#9BBCA6</div><div class="use">Formas orgânicas</div></div></div>
+    <div class="sw"><div class="chip" style="background:#4F8A66"></div><div class="meta"><div class="nm">Verde vivo</div><div class="hex">#4F8A66</div><div class="use">Acento / gráficos</div></div></div>
+    <div class="sw"><div class="chip" style="background:#FFFFFF; border-bottom:1px solid #eee"></div><div class="meta"><div class="nm">Branco</div><div class="hex">#FFFFFF</div><div class="use">Texto sobre verde</div></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">02 — Tipografia</div>
+  <h2 class="sec-title">Fontes e a assinatura da marca</h2>
+  <p class="sec-sub">Sans geométrico-humanista para títulos (Poppins), sans neutra para corpo (Inter). A regra que define a marca: título em peso regular com exatamente uma palavra-chave em negrito.</p>
+  <div class="type-grid">
+    <div class="specimen">
+      <div class="big">Poppins</div>
+      <div class="note">Títulos · pesos 400 / 500 / 600</div>
+      <div class="ramp" style="margin-top:14px;">
+        <div style="font-size:30px;">Conta digital</div>
+        <div style="font-size:22px; font-weight:500;">sem complicação</div>
+        <div style="font-size:16px;">é com a gente</div>
+      </div>
+    </div>
+    <div class="specimen">
+      <div class="big" style="font-family:'Inter'; font-weight:500;">Inter</div>
+      <div class="note">Corpo de texto · pesos 400 / 500</div>
+      <p style="margin-top:14px; font-size:14px; color:#41463f;">Texto de apoio, descrições e termos legais. Frases curtas, leitura fácil no celular, sem paredão de texto.</p>
+    </div>
+  </div>
+  <div class="pattern">
+    <div class="note">Padrão de headline (assinatura):</div>
+    <div class="ex">Controle seus <b>gastos</b> com inteligência</div>
+    <div class="ex">Invista direto pelo <b>app</b></div>
+    <div class="ex"><b>Pix</b> em segundos</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">03 — Sistema de cartelas</div>
+  <h2 class="sec-title">Duotone: escura e clara</h2>
+  <p class="sec-sub">Cada peça é uma cartela verde ou creme. As formas orgânicas em sálvia conectam os slides e dão movimento.</p>
+  <div class="cards">
+    <div class="card dark">
+      <svg class="blobc" viewBox="0 0 200 200"><path fill="#9BBCA6" d="M44,-66C56,-58,64,-44,69,-29C74,-14,75,3,70,18C65,33,54,46,40,55C26,64,9,69,-8,72C-25,75,-43,76,-56,67C-69,58,-77,39,-79,20C-81,1,-77,-19,-67,-34C-57,-49,-41,-59,-25,-66C-9,-73,8,-77,24,-76C40,-75,55,-69,44,-66Z" transform="translate(100 100)"/></svg>
+      <h3>Conta digital <b>sem tarifas</b></h3>
+      <span class="pill">Baixe o app grátis</span>
+    </div>
+    <div class="card light">
+      <svg class="blobc" viewBox="0 0 200 200"><path fill="#9BBCA6" d="M44,-66C56,-58,64,-44,69,-29C74,-14,75,3,70,18C65,33,54,46,40,55C26,64,9,69,-8,72C-25,75,-43,76,-56,67C-69,58,-77,39,-79,20C-81,1,-77,-19,-67,-34C-57,-49,-41,-59,-25,-66C-9,-73,8,-77,24,-76C40,-75,55,-69,44,-66Z" transform="translate(100 100)"/></svg>
+      <h3>Cartão <b>sem anuidade</b></h3>
+      <span class="pill">Peça o seu</span>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">04 — Voz e tom</div>
+  <h2 class="sec-title">Como o NeoBank fala</h2>
+  <p class="sec-sub">Direto, acolhedor e sem jargão. Promete pelo que é ausente (sem tarifas, sem anuidade) e entrega o benefício em poucas palavras.</p>
+  <div class="voice">
+    <div class="v">Conta digital sem tarifas</div>
+    <div class="v">Pix em segundos</div>
+    <div class="v">Atendimento que funciona</div>
+    <div class="v">Invista direto pelo app</div>
+  </div>
+  <div class="traits">
+    <span class="tag">confiante</span><span class="tag">acolhedor</span><span class="tag">sem jargão</span>
+    <span class="tag">benefício primeiro</span><span class="tag">moderno</span><span class="tag">acessível</span>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">05 — Aplicação</div>
+  <h2 class="sec-title">O sistema em ação (4:5)</h2>
+  <p class="sec-sub">Exemplo de carrossel montado com a paleta, a tipografia e o padrão de headline. Hook escuro, valor creme/verde, CTA na cor de acento.</p>
+  <div class="feed">
+    <div class="slide dark"><div class="role">hook</div><h4>3 motivos pra <b>largar</b> seu banco antigo</h4><div class="bd">Spoiler: o nº 2 é tarifa.</div><div class="lg"><span class="dot"></span>NEOBANK</div></div>
+    <div class="slide light"><div class="role">valor</div><h4>Conta <b>sem tarifas</b></h4><div class="bd">Zero mensalidade, zero pegadinha no fim do mês.</div><div class="lg"><span class="dot"></span>NEOBANK</div></div>
+    <div class="slide light"><div class="role">valor</div><h4>Pix em <b>segundos</b></h4><div class="bd">Manda e recebe na hora, 24h por dia.</div><div class="lg"><span class="dot"></span>NEOBANK</div></div>
+    <div class="slide dark"><div class="role">valor</div><h4>Invista direto pelo <b>app</b></h4><div class="bd">CDB, Tesouro e mais, sem complicação.</div><div class="lg"><span class="dot"></span>NEOBANK</div></div>
+    <div class="slide light"><div class="role">valor</div><h4>Cartão <b>sem anuidade</b></h4><div class="bd">Use o quanto quiser, sem pagar pra ter.</div><div class="lg"><span class="dot"></span>NEOBANK</div></div>
+    <div class="slide vivid"><div class="role">cta</div><h4>Abra sua conta <b>hoje</b></h4><div class="bd">Salva esse post e baixa o app grátis.</div><div class="lg"><span class="dot"></span>NEOBANK</div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">NeoBank Design System · extraído da imagem de referência · cores estimadas visualmente (calibre com os valores oficiais da marca se houver).</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+name: "NeoBank"
+description: "Fintech verde e acolhedora. Cartelas alternando verde-pinheiro profundo e creme quente, formas orgânicas em sálvia, fotografia de pessoas reais e mockups de app. Moderno, confiável e sem jargão."
+philosophy: "Banco digital que parece humano. Verde como confiança e sustentabilidade, creme como leveza, e uma palavra em negrito por título como assinatura. Benefício direto, nada de tecnês."
+primary_mode: "dual"        # alterna cartelas escuras (verde) e claras (creme)
+brand_source: "imagem de referência enviada (feed/carrossel NeoBank)"
+brand_domain: "banco digital / fintech"
+brand_type: "ui-rich"        # usa mockups de app + fotografia
+extracted_from: "reference/ref.png"
+
+# ── PRIMITIVES ──────────────────────────────────────────
+# Hex estimados por inspeção visual da referência. Marcados
+# como 'observed' os tons centrais; o resto completa a rampa.
+primitives:
+  colors:
+    green:                  # cor-âncora da marca (verde-pinheiro)
+      50:  "#E7EFE9"        # derived — tint claro sobre creme
+      100: "#C3D8C9"        # derived
+      200: "#9BBCA6"        # observed — sálvia das formas orgânicas / blobs
+      400: "#4F8A66"        # observed — verde vivo das telas de app / gráficos
+      600: "#2E5E45"        # derived — verde médio
+      700: "#21402F"        # observed — fundo das cartelas escuras
+      800: "#18302356"      # (ver 800 abaixo)
+      900: "#0E1F16"        # derived — verde quase preto
+    cream:                  # fundo claro quente
+      50:  "#FAF7EF"        # derived
+      100: "#F2ECDD"        # observed — fundo creme principal
+      200: "#E7DFCB"        # derived — tint de superfície
+    neutral:
+      0:   "#FFFFFF"        # observed — texto sobre verde / superfície de card
+      500: "#8A8F86"        # derived — texto terciário
+      900: "#101410"        # derived — texto forte sobre creme (quase preto esverdeado)
+    # Correção: o 800 do verde
+    green_800: "#183023"    # derived — superfície escura alternativa
+
+  spacing: [0, 4, 8, 12, 16, 24, 32, 48, 64]
+  radii:   [0, 8, 16, 24, 999]   # cards arredondados; botões em pill
+
+# ── SEMANTIC TOKENS ─────────────────────────────────────
+tokens:
+  colors:
+    dark_card:                       # cartelas verdes
+      background: "{green.700}"      # #21402F
+      text1:      "{neutral.0}"      # #FFFFFF
+      text2:      "{green.200}"      # #9BBCA6
+      accent:     "{green.400}"      # #4F8A66
+    light_card:                      # cartelas creme
+      background: "{cream.100}"      # #F2ECDD
+      surface:    "{cream.50}"       # #FAF7EF
+      text1:      "{neutral.900}"    # #101410
+      text2:      "{green.700}"      # #21402F (subtítulo / ênfase)
+      accent:     "{green.400}"      # #4F8A66
+      blob:       "{green.200}"      # #9BBCA6 — formas orgânicas decorativas
+
+  typography:
+    # Sans geométrico-humanista, limpo, com peso bold reservado
+    # para UMA palavra-chave por título (assinatura da marca).
+    display:
+      family: "Poppins"
+      real_font: "provável grotesk geométrico (Poppins/DM Sans/Gilroy)"
+      approximation_note: "A referência usa um sans limpo e levemente arredondado; Poppins captura o tom amigável-confiável. DM Sans é alternativa mais neutra."
+      fallback: "'Helvetica Neue', Arial, sans-serif"
+      weight_regular: 400
+      weight_bold: 600
+      letter_spacing: "-0.01em"
+      google_fonts: "Poppins:wght@400;500;600"
+    body:
+      family: "Inter"
+      fallback: "'Helvetica Neue', Arial, sans-serif"
+      size: "14px"
+      weight: 400
+      line_height: 1.5
+      google_fonts: "Inter:wght@400;500"
+
+  # ASSINATURA TIPOGRÁFICA — regra de marca observada:
+  # título = peso regular, com 1 palavra-chave em bold.
+  # Ex.: "Controle seus **gastos** com inteligência".
+  headline_pattern:
+    rule: "headline em weight regular; exatamente uma palavra-chave em bold (weight 600), mesma cor"
+    examples:
+      - "Conta digital sem tarifas"
+      - "Cartão sem anuidade"
+      - "Controle seus **gastos** com inteligência"
+      - "Invista direto pelo app"
+
+  # ── HERO STAGE / DIREÇÃO DE ARTE ──────────────────────
+  hero_stage:
+    preset: "fintech-organic-duotone"
+    observed_style:
+      description: >
+        Composições em 4:5 alternando dois fundos: verde-pinheiro profundo e
+        creme quente. Formas orgânicas/ondas em sálvia fluem entre os cards.
+        Fotografia de pessoas reais (sorrindo, diversas) segurando celular ou
+        cartão, com leve tratamento de cor esverdeado. Mockups de app com tela
+        verde e gráficos. Logo NeoBank (ícone de folha/N) sempre presente.
+      where_used:
+        - "fundo full-bleed (verde ou creme)"
+        - "formas orgânicas sálvia conectando os slides"
+        - "foto de pessoa ou mockup de app como elemento central"
+    background:
+      medium: "flat duotone + formas orgânicas"
+      color_mode: "palette"
+      palette: ["#21402F", "#F2ECDD", "#9BBCA6", "#4F8A66", "#FFFFFF"]
+      saturation: "muted"
+      light_source: "ambiente, suave"
+      texture: "liso (sem ruído/gradiente forte)"
+      shapes: "blobs e ondas orgânicas em sálvia (#9BBCA6)"
+      motion: "static"
+    photography:
+      subjects: "pessoas reais sorrindo, diversas, segurando celular/cartão; lifestyle"
+      treatment: "tom esverdeado coeso, luz natural, fundo limpo"
+      mockups: "telas de app com UI verde, gráficos de investimento, cartão NeoBank"
+    logo:
+      lockup: "ícone de folha/N + 'NEOBANK'"
+      placement: "rodapé do card, discreto"
+    cta:
+      style: "botão pill escuro 'Baixe o app grátis' + selos de app store"
+
+# ── VOICE ───────────────────────────────────────────────
+voice:
+  tone: "confiante, direto e acolhedor; foca no benefício concreto; zero jargão financeiro; moderno e acessível, nunca corporativo ou intimidador"
+  cadence: "títulos curtos, benefício em 2-4 palavras; uma palavra-chave em bold; promessas pelo que é ausente (sem tarifas, sem anuidade)"
+  samples:
+    - "Conta digital sem tarifas"
+    - "Cartão sem anuidade"
+    - "Pix em segundos"
+    - "Atendimento que funciona"
+    - "Controle seus gastos com inteligência"
+    - "Invista direto pelo app"
+
+# ── ART DIRECTION (derivado — consumido pelo Higgsfield) ─
+# Parágrafo único prependido em TODA geração de imagem para
+# manter o estilo idêntico à referência.
+art_direction:
+  style_prompt: >
+    Modern fintech social media visual, flat duotone style. Palette: deep pine
+    green (#21402F) and warm cream (#F2ECDD) backgrounds, sage-green organic
+    blob/wave shapes (#9BBCA6), vivid green accents (#4F8A66), white text on the
+    dark cards and near-black green text on the cream cards. Real, diverse smiling
+    people holding a phone or a card, natural light, cohesive green color grade;
+    or clean app-UI mockups with green screens and investment charts. Clean
+    geometric-humanist sans-serif typography (Poppins-like), headline in regular
+    weight with exactly one keyword in bold. Friendly, trustworthy, jargon-free,
+    spacious composition with room for a short benefit-led headline. Small dark
+    pill CTA button and a discreet leaf/N "NEOBANK" logo lockup. Format 4:5
+    (1080x1350). Avoid: AI-slop, neon, heavy gradients, generic stock-photo look,
+    cluttered layouts.
+  default_ratio: "4:5"
+  default_models: ["nano_banana_pro", "gpt_image_2"]   # texto nítido nos slides
